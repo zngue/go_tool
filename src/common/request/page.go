@@ -3,7 +3,7 @@ package request
 type Page struct {
 	Page int `form:"page" json:"page"` //当前页码
 	PageSize int `form:"page_size" json:"page_size" `//分页大小
-	OrderFile []OrderFile
+	OrderFile []OrderFile `json:"order_file" form:"order_file"`
 }
 type OrderFile struct {
 	Field string `json:"field" form:"field"`

@@ -14,10 +14,8 @@ import (
 func TestMainTe(t *testing.T) {
 
 	httpOne,_:=gin_run.HttpRouterServe("3031", func(group *gin.RouterGroup) {
-		router.RouterArticle(group)
 	})
 	httpTwo,_:=gin_run.HttpRouterServe("3032", func(group *gin.RouterGroup) {
-		router.IdeaRouter(group)
 	})
 	go gin_run.HttpRun(func() error {
 		return httpOne.ListenAndServe()
