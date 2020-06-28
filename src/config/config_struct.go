@@ -24,6 +24,7 @@ type Mysql struct {
 	MaxIdleConns int `json:"maxIdleConns"`
 	MaxOpenConns int `json:"maxOpenConns"`
 	Charset string `json:"charset"`
+	TimeStamp bool `json:"timeStamp"`
 }
 //redis配置信息
 type Redis struct {

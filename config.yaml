@@ -10,6 +10,7 @@ mysql:
     maxOpenConns: 10
     logMode: true
     charset: utf8
+    timeStamp: false #是否使用时间戳自动维护 false  false  使用 GormModel  true 使用 TimeStampModel
 jwt: #jwt配置项
     secret: zngue
     expireTime: 3600 #有效期  以秒为单位计算
