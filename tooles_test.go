@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"github.com/zngue/go_tool/src/idea"
 	"github.com/zngue/go_tool/src/jwt"
 	"testing"
@@ -30,23 +29,4 @@ func TestJwt( t *testing.T)  {
 
 }
 
-type User struct {
-	ID int
-	Name string
-	
-}
-func teName(i interface{}) map[string]interface{} {
-	m := make(map[string]interface{})
-	b,_:=json.Marshal(i)
-	json.Unmarshal(b,&m)
-	return m
-}
-func TestUserList(t *testing.T) {
-	user :=User{
 
-		10,
-		"zhansgan",
-	}
-
-	t.Log(teName(user))
-}

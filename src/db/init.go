@@ -17,7 +17,9 @@ func init()  {
 		Config=config.YamlToStruck()
 	}
 }
-func InitDB()  {
+
+type  AutoDB func(db *gorm.DB)
+func InitDB(mysqlDbd ...AutoDB)  {
 	//Config =config.JsonToStruck() //获取配置信息
 	if Config==nil {
 		sign_chan.SignLog("配置文件加载失败...")
@@ -28,7 +30,7 @@ func InitDB()  {
 		RedisConnet()//链接redis
 	}
 	if load.Mysql {
-		MysqlConnet()//链接mysql数据库
+		MysqlConnet(mysqlDbd...)//链接mysql数据库
 	}
 }
 //关闭连接池

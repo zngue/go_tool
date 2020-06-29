@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"github.com/gin-gonic/gin"
-	"github.com/zngue/go_tool/app/router"
 	"github.com/zngue/go_tool/src/db"
 	"github.com/zngue/go_tool/src/gin_run"
 	"github.com/zngue/go_tool/src/sign_chan"
