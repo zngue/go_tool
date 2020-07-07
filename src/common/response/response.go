@@ -1,6 +1,8 @@
 package response
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+)
 
 type Response struct {
 	StatusCode int         `json:"statusCode"`
@@ -61,3 +63,20 @@ func HttpFailWithParameter(ctx *gin.Context, data ...interface{}) {
 		ReturnCode(ctx, 422, "参数错误", nil)
 	}
 }
+func HttpFailWithErr(ctx *gin.Context, data ...error)  {
+	if len(data) > 0 {
+		if len(data)==1 {
+			ReturnCode(ctx, FailCode, FailMessage, data[0].Error())
+		}else{
+			var userArr []string
+			for _,err:=range  data {
+				userArr=append(userArr, err.Error())
+			}
+			ReturnCode(ctx, FailCode, FailMessage, userArr)
+		}
+
+	} else {
+		ReturnCode(ctx, FailCode, FailMessage, nil)
+	}
+}
+
