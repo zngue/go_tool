@@ -22,6 +22,8 @@ func (s *IDStatusRequest ) IDStringToIDArr () *IDStatusRequest  {
 func (s *IDStatusRequest)  CheckStatus() *IDStatusRequest  {
 	if s.Type==1 {
 		s.IDStringToIDArr()
+	}else{
+		s.IDArr = append(s.IDArr,s.ID)
 	}
 	return s
 }
