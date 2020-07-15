@@ -20,51 +20,42 @@ type DBHelper struct {
 }
 
 type Add struct {
-	Err	 error
+	Err   error
 	FunDB FunDB
 }
 
 func (a *Add) Add() *Add {
-	dbConn :=db.MysqlConn
-	if a.FunDB==nil {
+	dbConn := db.MysqlConn
+	if a.FunDB == nil {
 		a.Err = errors.New("fundb can not  nil")
 		return a
 	}
-	a.Err=a.FunDB(dbConn)
+	a.Err = a.FunDB(dbConn)
 	return a
 }
+
 type Update struct {
-	Err	 error
-	FunDB FunDB
-	Data  interface{}
+	Err      error
+	FunDB    FunDB
+	Data     interface{}
 	FunWhere FunWhere
 	MapWhere MapWhere
 }
 
-func (u *Update) Update()  *Update {
-	dbConn:=db.MysqlConn
-	if u.FunWhere!=nil {
+func (u *Update) Update() *Update {
+	dbConn := db.MysqlConn
+	if u.FunWhere != nil {
 		dbConn = u.FunWhere(dbConn)
 	}
-	if u.MapWhere!=nil {
-
+	if u.MapWhere != nil {
 
 	}
 	return u
 }
+
 type Delete struct {
-	
 }
 type Status struct {
-	
 }
 type List struct {
-
 }
-
-
-
-
-
-
-
