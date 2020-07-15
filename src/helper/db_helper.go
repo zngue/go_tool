@@ -50,9 +50,6 @@ func (u *Update) Update()  *Update {
 
 
 	}
-
-
-
 	return u
 }
 type Delete struct {
