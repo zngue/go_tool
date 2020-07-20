@@ -28,4 +28,6 @@ func StringToInt( str string ) (int int,err error)  {
 func IntToString( int2 int ) string {
 	return  strconv.Itoa(int2)
 }
+//判断id是否在一个数组中
+
 
