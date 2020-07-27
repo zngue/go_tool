@@ -3,6 +3,8 @@ package config
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
+	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
 	"github.com/zngue/go_tool/src/fun/file"
 	"github.com/zngue/go_tool/src/log"
@@ -38,6 +40,13 @@ func YamlToStruck()(configinfo *Config) {
 		return
 	}
 	v.WatchConfig()
+	v.OnConfigChange(func(in fsnotify.Event) {
+		fmt.Println("config file changed:", in.Name)
+		if err := v.Unmarshal(&config); err != nil {
+			sign_chan.SignLog(err)
+		}
+		configinfo = &config
+	})
 	if err := v.Unmarshal(&config); err != nil {
 		sign_chan.SignLog(err)
 		return
