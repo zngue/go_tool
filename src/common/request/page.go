@@ -23,13 +23,17 @@ func (p *Page) OnlyPage (db *gorm.DB) *gorm.DB {
 	}
 	return db
 }
-func (p *Page) OnlyCount(count ListCount) error {
+func (p *Page) OnlyCount(count ListCount) (bool,error) {
+	var typeInfo bool
 	if count!=nil && p.IsCount!=0 {
 		err:=count()
 		if  err!=nil{
-			return  err
+			return  typeInfo,err
+		}
+		if p.IsCount==2 {
+			return typeInfo,nil
 		}
 	}
-	return nil
+	return typeInfo,nil
 }
 
