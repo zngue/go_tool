@@ -29,9 +29,6 @@ func (p *Page) OnlyCount(count ListCount) error {
 		if  err!=nil{
 			return  err
 		}
-		if  p.IsCount==2{
-			return nil
-		}
 	}
 	return nil
 }
