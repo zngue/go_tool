@@ -31,6 +31,7 @@ func (p *Page) OnlyCount(count ListCount) (bool,error) {
 			return  typeInfo,err
 		}
 		if p.IsCount==2 {
+			typeInfo=true
 			return typeInfo,nil
 		}
 	}
