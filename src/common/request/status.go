@@ -24,9 +24,13 @@ func (s *IDStatusRequest ) IDStringToIDArr () *IDStatusRequest  {
 }
 func (s *IDStatusRequest)  CheckStatus() error  {
 	if s.Type==1 {
-		s.IDStringToIDArr()
+		if s.IDString!="" {
+			s.IDStringToIDArr()
+		}
 	}else{
-		s.IDArr = append(s.IDArr,s.ID)
+		if s.ID!=0 {
+			s.IDArr = append(s.IDArr,s.ID)
+		}
 	}
 	if len(s.IDArr)==0 {
 		return errors.New("id or id_string is should required")
