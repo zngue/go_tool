@@ -20,7 +20,9 @@ func Http(engine *gin.Engine,port string ) *http.Server {
 	fmt.Println("|-----------------------------------|")
 	fmt.Println("|-----------------------------------|")
 	fmt.Println("|  Go Http Server Start Successful  |")
-	fmt.Println("|     Port:" + port + "   ------        |")
+	fmt.Println("|----------Port:" + port + "----------------|")
+	fmt.Println("|-zngue微服务博客地址blog.zngue.com-|")
+	fmt.Println("|-----------------------------------|")
 	fmt.Println("|-----------------------------------|")
 	return server
 }
