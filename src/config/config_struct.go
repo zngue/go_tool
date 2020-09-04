@@ -1,16 +1,18 @@
 package config
 
-
+import "crypto/rsa"
 
 type Config struct {
 	Mysql Mysql `json:"mysql" `
-	Redis Redis	`json:"redis" `
+	Redis Redis	`json:"redis.yaml" `
 	System System `json:"system" `
 	HttpRequest HttpRequest  `json:"http_request" `
 	ServiceList []ServiceList `json:"serviceList" `
 	DefaultLoad DefaultLoad `json:"defaultLoad"`
 	AliyunOss AliyunOss `json:"aliyunoss" `
 	JWT Jwt `json:"jwt"`
+	AliAppClient AliAppClient `json:"ali_app_client"`
+	WeChat WeChat 	`json:"wechat"`
 }
 //数据库配置信息
 type Mysql struct {
@@ -25,6 +27,13 @@ type Mysql struct {
 	MaxOpenConns int `json:"maxOpenConns"`
 	Charset string `json:"charset"`
 	TimeStamp bool `json:"timeStamp"`
+}
+type AliAppClient struct {
+	PartnerID  string  `json:"partner_id"`//合作者ID
+	SellerID   string `json:"seller_id"`
+	AppID      string `json:"app_id"` // 应用ID
+	PrivateKey *rsa.PrivateKey `json:"private_key"`
+	PublicKey  *rsa.PublicKey `json:"public_key"`
 }
 //redis配置信息
 type Redis struct {
@@ -51,7 +60,7 @@ type ServiceList struct {
 //默认加载数据
 type DefaultLoad struct {
 	Mysql bool `json:"mysql"`
-	Redis bool `json:"redis"`
+	Redis bool `json:"redis.yaml"`
 }
 type AliyunOss struct {
 	Accessid string `json:"accessid"`
@@ -67,5 +76,14 @@ type Jwt struct {
 	ExpireTime int `json:"expireTime"`
 	Issuer string `json:"issuer"`
 	Subject string `json:"subject"`
+}
+type WeChat struct {
+	AppID string `json:"appID"`
+	AppSecret string `json:"appSecret"`
+	Token string `json:"token"`
+	EncodingAESKey string `json:"encodingAESKey"`
+	PayMchID string `json:"payMchID"`
+	PayNotifyURL string `json:"payNotifyURL"`
+	PayKey string `json:"payKey"`
 }
 

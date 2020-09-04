@@ -54,3 +54,11 @@ aliyunoss:
     uploaddir: 5
     domainName: 6
     ssl: 7
+wechat:
+    appID:
+    appSecret:
+    token:
+    encodingAESKey:
+    payMchID:
+    payNotifyURL:
+    payKey:
