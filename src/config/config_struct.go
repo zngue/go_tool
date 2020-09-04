@@ -60,7 +60,7 @@ type ServiceList struct {
 //默认加载数据
 type DefaultLoad struct {
 	Mysql bool `json:"mysql"`
-	Redis bool `json:"redis.yaml"`
+	Redis bool `json:"redis"`
 }
 type AliyunOss struct {
 	Accessid string `json:"accessid"`
@@ -85,5 +85,7 @@ type WeChat struct {
 	PayMchID string `json:"payMchID"`
 	PayNotifyURL string `json:"payNotifyURL"`
 	PayKey string `json:"payKey"`
+	RedisNum int `json:"redisNum"`
+
 }
 
