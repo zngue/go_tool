@@ -82,11 +82,6 @@ func MicroConfig(){
 		sign_chan.SignLog(err)
 		return
 	}
-	configs:=MicroHttpRequest()
-	if configs==nil {
-		sign_chan.SignLog("micro config err")
-		return
-	}
 	return
 }
 func  MicroHttpRequest() *Config  {
