@@ -1,7 +1,20 @@
 package config
 
-import "crypto/rsa"
+import (
+	"crypto/rsa"
+)
 
+type Micro struct {
+	ID string `json:"ID"`
+	Host string `json:"host"`
+	EndPoint string `json:"end_point"`
+	IsMicroConfig bool 	`json:"is_micro_config"`
+}
+type MicroResponse struct {
+	StatusCode int         `json:"statusCode"`
+	Message    string      `json:"message"`
+	Data Config			   `json:"data"`
+}
 type Config struct {
 	Mysql Mysql `json:"mysql" `
 	Redis Redis	`json:"redis" `
