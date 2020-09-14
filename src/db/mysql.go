@@ -28,6 +28,11 @@ func MysqlConnet(mysqlDB ...AutoDB)  {
 		db.Callback().Create().Replace("gorm:update_time_stamp",updateTimeStampForCreateCallback)
 		db.Callback().Update().Replace("gorm:update_time_stamp",updateTimeStampForUpdateCallback)
 	}
+	if mysql.Prefix!="" {
+		gorm.DefaultTableNameHandler= func(db *gorm.DB,defaultTableName string) string{
+			return mysql.Prefix+defaultTableName
+		}
+	}
 	MysqlConn = db
 	return
 }

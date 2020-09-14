@@ -30,6 +30,7 @@ type Config struct {
 //数据库配置信息
 type Mysql struct {
 	DBName string `json:"dbName" form:"db_name" gorm:"column:db_name"`
+	Prefix string `json:"prefix" form:"prefix" gorm:"column:prefix"`
 	Username string `json:"username" form:"user_name" gorm:"column:user_name"`
 	Password string `json:"password" form:"password" gorm:"column:password"`
 	Config string	`json:"config" form:"config" gorm:"column:config"`

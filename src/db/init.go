@@ -10,19 +10,10 @@ var (
 	MysqlConn *gorm.DB
 	RedisConn *redis.Client
 )
+
 func init()  {
 	if Config==nil {
-		config.MicroConfig()
-		if config.MicroConf!=nil {
-			if config.MicroConf.IsMicroConfig {
-				Config=config.MicroHttpRequest()
-			}else{
-				Config=config.YamlToStruck()
-			}
-		}
-	}
-	if Config==nil {
-		sign_chan.SignLog("配置文件加载失败...")
+		Config=config.YamlToStruck()
 	}
 }
 
